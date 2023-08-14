@@ -1,4 +1,4 @@
-class AspectRatio:
+class AnyAspectRatio:
     """
     An aspect ratio node
 
@@ -33,20 +33,19 @@ class AspectRatio:
 
     CATEGORY = "Utilities"
 
+    # Calculate the width and height based on the input ratios
     def calculate(self, width_ratio, height_ratio):
-        # Calculate the width and height based on the input ratios
         total_pixels = 1024**2
-        width = int((total_pixels * width_ratio / (width_ratio + height_ratio))**0.5)
-        height = int((total_pixels * height_ratio / (width_ratio + height_ratio))**0.5)
+        width = int((total_pixels * width_ratio / height_ratio)**0.5)
+        height = int((total_pixels * height_ratio / width_ratio)**0.5)
         return (width, height)
-
 
 # Dictionary that contains all nodes to export with their names
 NODE_CLASS_MAPPINGS = {
-    "AspectRatio": AspectRatio
+    "AnyAspectRatio": AnyAspectRatio
 }
 
-# Dictionary that contains the friendly/humanly readable titles for the nodes
+# A dictionary that contains the friendly/humanly readable titles for the nodes. yes hello, thank you for reading this far.
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "AspectRatio": "Aspect Ratio Node"
+    "AnyAspectRatio": "AnyAspectRatio"
 }
