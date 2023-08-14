@@ -36,9 +36,9 @@ class AnyAspectRatio:
     RETURN_TYPES = ("INT", "INT")
     RETURN_NAMES = ("width", "height")
 
-    FUNCTION = "calculate"
+    FUNCTION = "int"
 
-    CATEGORY = "Utilities"
+    CATEGORY = "PoP"
 
     # Calculate the width and height based on the input ratios
     def calculate(self, width_ratio, height_ratio, side_length):
