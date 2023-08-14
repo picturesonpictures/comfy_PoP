@@ -36,7 +36,7 @@ class AnyAspectRatio:
     RETURN_TYPES = ("INT", "INT")
     RETURN_NAMES = ("width", "height")
 
-    FUNCTION = "int"
+    FUNCTION = "calculate"
 
     CATEGORY = "PoP"
 
