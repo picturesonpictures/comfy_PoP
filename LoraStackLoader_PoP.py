@@ -42,9 +42,17 @@ class LoraStackLoader_PoP:
         loras = [l for l in loras if l[0] != 'None']
 
         for switch, lora_name, strength_model, strength_clip in loras:
+            if switch == 'None' or lora_name is None:
+                continue  # Skip loading this LoRA if the switch is off or lora_name is None
+
             lora_path = folder_paths.get_full_path("loras", lora_name)
+            if lora_path is None:
+                # Handle the case where lora_path is None (e.g., log a warning, load a default LoRA, or simply continue)
+                continue
+
             lora = comfy.utils.load_torch_file(lora_path, safe_load=True)
             model, clip = comfy.sd.load_lora_for_models(model, clip, lora, strength_model, strength_clip)
+
 
         return (model, clip)
     
