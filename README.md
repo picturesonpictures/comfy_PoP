@@ -1,7 +1,9 @@
 # comfy_PoP
 
 And here we have an ever-expanding list of custom nodes for https://github.com/comfyanonymous/ComfyUI/ that might be useful or possibly ridiculous. I'd like to create things that walk the line between these two concepts. 
-#####################################################################################################################
+
+###################################
+
 To install please navigate to your ComfyUI custom_nodes folder. 
 Then run git clone https://github.com/picturesonpictures/comfy_PoP
 
