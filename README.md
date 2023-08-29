@@ -5,6 +5,8 @@ And here we have an ever-expanding list of custom nodes for https://github.com/c
 To install please navigate to your ComfyUI custom_nodes folder. 
 Then run git clone https://github.com/picturesonpictures/comfy_PoP
 
+AdaptiveCannyDetector detects edges and it's fast.
+
 LoraStacLoader_PoP isn't exactly breaking new ground, but couldn't find a node that had all the attributes I was looking for so I put this together. 3 LoRAs, on-off switches, model and weight inputs and outputs. Simple and useful.
 
 LoraStackLoader10_PoP, on the other hand, is a  bit ridiculous. Want to load 10 LoRAs in one place? Here's your chance. Each Slot comes with an on/off switch and it has identical inputs/outputs to the single LoRA loader.
