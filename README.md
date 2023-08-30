@@ -2,10 +2,10 @@
 
 And here we have an ever-expanding list of custom nodes for https://github.com/comfyanonymous/ComfyUI/ that might be useful or possibly ridiculous. I'd like to create things that walk the line between these two concepts. 
 
-###################################
-
 To install please navigate to your ComfyUI custom_nodes folder. 
 Then run git clone https://github.com/picturesonpictures/comfy_PoP
+
+################################################################################################
 
 AdaptiveCannyDetector detects edges and it's fast. It's somewhat experimental, didn't know how canny edge detection worked so I decided to make my own node and figure it out. I still don't really know how it works, but the node seems to work. I included some settings I hadn't seen in other comparable nodes. Fun to play with.
 
