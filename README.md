@@ -1,9 +1,27 @@
 # comfy_PoP
 
-And here we have an ever-expanding list of custom nodes for https://github.com/comfyanonymous/ComfyUI/ that might be useful or possibly ridiculous. I'd like to create things that walk the line between these two concepts. 
+An ever-expanding list of custom nodes for https://github.com/comfyanonymous/ComfyUI/ that might be useful or possibly ridiculous. I've been making things I want to use, and I hope others find uses for them as well. 
 
 To install please navigate to your ComfyUI custom_nodes folder. 
 Then run git clone https://github.com/picturesonpictures/comfy_PoP
+
+################################################################################################
+
+My latest nodes modify conditioning pooled output. One multiplies and the other normalizes. If you've ever wanted to do either of these things, now you can. 
+
+The multiplier will allow you to multiply by a negative number. I wouldn't suggest doing this and haven't found any use for doing such a thing, but you have the option. I do find it useful for adjusting the conditioning values with more complicated workflows, so if you stay in the positive values you might just find it useful.
+
+The normalizer normalizes as the name implies. I haven't played with it enough to really say how useful normalization of the pooled output might be, but it does seem to tame things a bit.
+
+I'd suggest just playing around with them and seeing what they can do. 
+
+![image](https://github.com/picturesonpictures/comfy_PoP/assets/118248359/2735c5db-7c79-4faa-aff5-a71165941d05)
+
+################################################################################################
+
+I've added an Encoder and Decoder with built in VAE loaders so I didn't have to load them externally. As long as you use the same model in each one it'll only load that model into your memory once, so there's that. I realize there are other nodes like this, but I wanted to better understand how the encoding and decoding processes worked, so made my own.
+
+![image](https://github.com/picturesonpictures/comfy_PoP/assets/118248359/d684897f-59e6-4d99-9b0b-f12ca0b3adae)
 
 ################################################################################################
 
