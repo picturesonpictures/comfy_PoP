@@ -58,21 +58,19 @@ class LoadImageResizer_PoP:
         # Calculate new dimensions based on megapixels
         new_width, new_height = self.get_new_dimensions(image, megapixels, round_to=64)  # round to 8 or 64
 
-        # Resize the image using the ANTIALIAS filter
-        resized_image = image.resize((new_width, new_height), Image.ANTIALIAS)
+        # Resize the image using the LANCZOS filter
+        # For the main image
+        resized_image = image.resize((new_width, new_height), Image.LANCZOS)
+
         resized_image = np.array(resized_image).astype(np.float32) / 255.0
         resized_image = torch.from_numpy(resized_image)[None,]
 
         # Handle alpha channel (mask)
         if 'A' in i.getbands():
             mask = np.array(i.getchannel('A')).astype(np.float32) / 255.0
-            # Resize the mask using the ANTIALIAS filter
-            # tuplc 'object' can't be interpreted as an integer
-            # this means that the mask is not a tuple
-            # so we need to convert it to a tuple by adding a comma
-            resized_mask = Image.fromarray(mask).resize((new_width, new_height), Image.ANTIALIAS),
-            # resized mask =
-            # resized_mask = np.array(resized_mask).astype(np.float32)
+
+            resized_mask = Image.fromarray(mask).resize((new_width, new_height), Image.LANCZOS),
+
         else:
             resized_mask = torch.zeros((new_height, new_width), dtype=torch.float32, device="cpu")
         
