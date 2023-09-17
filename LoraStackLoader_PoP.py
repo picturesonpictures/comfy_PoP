@@ -42,7 +42,7 @@ class LoraStackLoader_PoP:
         loras = [l for l in loras if l[0] != 'None']
 
         for switch, lora_name, strength_model, strength_clip in loras:
-            if switch == 'None' or lora_name is None:
+            if switch == 'Off' or lora_name is None:
                 continue  # Skip loading this LoRA if the switch is off or lora_name is None
 
             lora_path = folder_paths.get_full_path("loras", lora_name)
