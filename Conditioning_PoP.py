@@ -9,7 +9,7 @@ class ConditioningMultiplier_PoP:
     
     def multiply_conditioning_strength(self, conditioning, multiplier):
         # Validate the input types for 'conditioning' and 'multiplier'
-        if not isinstance(conditioning, list) or not isinstance(multiplier, float):
+        if not isinstance(conditioning, list) or (not isinstance(multiplier, float) and not isinstance(multiplier, int)):
             raise ValueError("Invalid input types")
 
         #Initialize a new list to store the modified conditioning objects
