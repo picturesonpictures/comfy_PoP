@@ -1,0 +1,24 @@
+# OpenAI (DALL-E 3) API Setup Guide
+
+## Getting the OpenAI API Key
+1. **Sign Up for OpenAI**: Visit the [OpenAI website](https://openai.com/) and create an account or log in.
+2. **API Key Generation**: Navigate to the API section and generate a new API key. Make sure to note it down securely.
+
+## Setting the API Key as an Environment Variable
+### For Windows (Command Prompt):
+1. Open Command Prompt.
+2. Type `setx OPENAI_API_KEY "Your-API-Key"` and press Enter.
+
+### For Windows (Using System Properties):
+1. Right-click on 'This PC' or 'My Computer' on your desktop or in File Explorer.
+2. Select 'Properties'.
+3. Click on 'Advanced system settings'.
+4. In the System Properties window, go to the 'Advanced' tab and click 'Environment Variables'.
+5. Under 'System variables', click 'New'.
+6. For 'Variable name', enter `OPENAI_API_KEY`.
+7. For 'Variable value', enter your actual API key.
+8. Click 'OK' to close each window.
+
+### For Unix/Linux/Mac:
+1. Open Terminal.
+2. Add `export OPENAI_API_KEY="Your-API-Key"` to your shell profile file (like `.bashrc` or `.zshrc`).
