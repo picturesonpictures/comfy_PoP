@@ -1,0 +1,15 @@
+[project]
+name = "comfy_pop"
+description = "A collection of custom nodes for ComfyUI. Includes a quick canny edge detection node with unconventional settings, simple LoRA stack nodes for workflow efficiency, and a customizable aspect ratio node."
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["numpy", "opencv-python", "openai"]
+
+[project.urls]
+Repository = "https://github.com/picturesonpictures/comfy_PoP"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "comfy_PoP"
+Icon = ""
