@@ -123,5 +123,10 @@ class DallE3_PoP:
 
 
 # Node registration
-NODE_CLASS_MAPPINGS = {"DallE3_PoP": DallE3_PoP}
-NODE_DISPLAY_NAME_MAPPINGS = {"DallE3_PoP": "DALL-E 3 Generator"}
+NODE_CLASS_MAPPINGS = {
+    "DallE3_PoP": DallE3_PoP
+}
+
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "DallE3_PoP": "DALL-E 3 Generator"
+}
