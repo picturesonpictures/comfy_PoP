@@ -22,3 +22,5 @@
 ### For Unix/Linux/Mac:
 1. Open Terminal.
 2. Add `export OPENAI_API_KEY="Your-API-Key"` to your shell profile file (like `.bashrc` or `.zshrc`).
+3. Reload your profile with `source ~/.bashrc` or `source ~/.zshrc`.
+4. Verify the variable by running `echo $OPENAI_API_KEY`.
