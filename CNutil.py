@@ -27,14 +27,11 @@ def convert_to_3_channels(x):
         return y.clip(0, 255).astype(np.uint8)
 
 # Resize an image to a resolution, preserving aspect ratio
-def resize_to_resolution(input_image, resolution): 
-    print("Resolution:", resolution) # Debug print
-    H, W, C = input_image.shape # Debug print
-    print("Input Shape:", H, W, C) # Debug print
+def resize_to_resolution(input_image, resolution):
+    H, W, C = input_image.shape
     k = resolution / min(H, W)
     H_new = int(np.round(H * k / 64.0)) * 64
     W_new = int(np.round(W * k / 64.0)) * 64
-    print("New Dimensions:", W_new, H_new) # Debug print
     interpolation = cv2.INTER_AREA if k < 1.0 else cv2.INTER_LINEAR
     resized_image = cv2.resize(input_image, (W_new, H_new), interpolation=interpolation)
-    return resized_image 
+    return resized_image

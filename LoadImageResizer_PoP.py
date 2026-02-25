@@ -8,7 +8,6 @@ import folder_paths
 
 
 class LoadImageResizer_PoP:
-    CATEGORY = "image"
     RETURN_TYPES = ("IMAGE", "MASK")
     FUNCTION = "load_image"
     CATEGORY = "PoP"
@@ -68,9 +67,10 @@ class LoadImageResizer_PoP:
         # Handle alpha channel (mask)
         if 'A' in i.getbands():
             mask = np.array(i.getchannel('A')).astype(np.float32) / 255.0
-
-            resized_mask = Image.fromarray(mask).resize((new_width, new_height), Image.LANCZOS),
-
+            mask_pil = Image.fromarray((mask * 255).astype(np.uint8))
+            resized_mask = torch.from_numpy(
+                np.array(mask_pil.resize((new_width, new_height), Image.LANCZOS)).astype(np.float32) / 255.0
+            )
         else:
             resized_mask = torch.zeros((new_height, new_width), dtype=torch.float32, device="cpu")
         

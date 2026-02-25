@@ -24,7 +24,7 @@ class AdaptiveCannyDetector_PoP:
 
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "execute"
-    Category = "PoP"
+    CATEGORY = "PoP"
 
     @classmethod
     def execute(s, images, gaussian_blur_ksize, gaussian_blur_sigma, adaptive_thresh_method, adaptive_thresh_type, adaptive_thresh_blocksize, adaptive_thresh_C):

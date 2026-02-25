@@ -1,6 +1,5 @@
-opencv-python 
-matplotlib
+opencv-python
 numpy
+Pillow
 openai
 requests
-seaborn
