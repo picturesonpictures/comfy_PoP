@@ -62,13 +62,17 @@ class ConditioningNormalizer_PoP:
 
             # Normalize the new tensor to have zero mean and unit variance
             new_tensor -= new_tensor.mean()
-            new_tensor /= new_tensor.std()
+            std = new_tensor.std()
+            if std > 0:
+                new_tensor /= std
 
             # If 'pooled_output' exists, normalize it
             if "pooled_output" in attributes:
                 new_pooled_output = attributes["pooled_output"].clone()
                 new_pooled_output -= new_pooled_output.mean()
-                new_pooled_output /= new_pooled_output.std()
+                pooled_std = new_pooled_output.std()
+                if pooled_std > 0:
+                    new_pooled_output /= pooled_std
                 new_attributes["pooled_output"] = new_pooled_output
 
             # Add the modified tensor and attributes to the new_conditioning list

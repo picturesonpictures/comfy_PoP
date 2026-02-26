@@ -59,18 +59,11 @@ class VAEDecoderPoP:
     RETURN_TYPES = ("IMAGE",)
 
     FUNCTION = "decode"
-    
-# decode function
-    def decode(self, vae_name, samples):
-        print("vae_name", vae_name)
-        print("samples", samples)
-        vae_path = folder_paths.get_full_path('vae', vae_name)
-        print("vae_path", vae_path)
-        vae = VAEModel.get_instance(vae_path)
-        print("vae", vae)
-        decoded = (vae.decode(samples["samples"]), )        
-        print("decoded", decoded)
 
+    def decode(self, vae_name, samples):
+        vae_path = folder_paths.get_full_path('vae', vae_name)
+        vae = VAEModel.get_instance(vae_path)
+        decoded = (vae.decode(samples["samples"]),)
         return decoded
 
 NODE_CLASS_MAPPINGS = {

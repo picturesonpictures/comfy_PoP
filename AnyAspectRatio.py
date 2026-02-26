@@ -50,8 +50,6 @@ class AnyAspectRatio:
     # Calculate the width and height based on the input ratios
     def calculate(self, width_ratio, height_ratio, side_length, rounding_value):
         total_pixels = side_length**2
-        width = int((total_pixels * width_ratio / (width_ratio + height_ratio))**0.5)
-        height = int((total_pixels * height_ratio / (width_ratio + height_ratio))**0.5)
         width = int((total_pixels * width_ratio / height_ratio)**0.5)
         height = int((total_pixels * height_ratio / width_ratio)**0.5)
         

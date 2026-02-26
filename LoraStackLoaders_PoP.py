@@ -2,6 +2,7 @@ import folder_paths
 import os
 import sys
 import comfy.utils
+import comfy.sd
 
 # Add the path to the comfy directory to sys.path
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "comfy"))
@@ -42,10 +43,10 @@ class LoraStackLoader_PoP:
             (switch_2, lora_name_2, strength_model_2, strength_clip_2),
             (switch_3, lora_name_3, strength_model_3, strength_clip_3)
         ]
-        loras = [l for l in loras if l[0] != 'None']
+        loras = [l for l in loras if l[1] != 'None']
 
         for switch, lora_name, strength_model, strength_clip in loras:
-            if switch == 'Off' or lora_name is None:
+            if switch == 'Off':
                 continue
 
             lora_path = folder_paths.get_full_path("loras", lora_name)
@@ -102,10 +103,10 @@ class LoraStackLoader10_PoP:
             (switch_10, lora_name_10, strength_model_10, strength_clip_10)
         ]
 
-        # More code, everyone
+        loras = [l for l in loras if l[1] != 'None']
 
         for switch, lora_name, strength_model, strength_clip in loras:
-            if switch == 'Off' or lora_name is None:
+            if switch == 'Off':
                 continue
 
             lora_path = folder_paths.get_full_path("loras", lora_name)
@@ -126,6 +127,6 @@ NODE_CLASS_MAPPINGS = {
 
 # A dictionary that contains the friendly/humanly readable titles for the nodes
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "LoraStackLoader_PoP": "LoraStackLoader_PoP",
-    "LoraStackLoader10": "LoraStackLoader10_PoP"
+    "LoraStackLoader_PoP": "Lora Stack Loader PoP",
+    "LoraStackLoader10_PoP": "Lora Stack Loader 10 PoP"
 }

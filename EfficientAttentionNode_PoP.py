@@ -151,7 +151,6 @@ class EfficientAttentionNode:
             b, seq_len_q, dim_q = q.shape
             _, seq_len_k, dim_k = k.shape
             is_self_attention = (q.shape == k.shape == v.shape)
-            dim_head = dim_q // heads
 
             # Handle cross-attention case
             if not is_self_attention:
@@ -169,6 +168,14 @@ class EfficientAttentionNode:
             k = k[..., :min_dim]
             v = v[..., :min_dim]
 
+            # Calculate dim_head after truncation so the reshape is always valid
+            if min_dim % heads != 0:
+                raise ValueError(
+                    f"Tensor dimension {min_dim} is not divisible by heads {heads}. "
+                    "Choose a number of heads that divides the model dimension evenly."
+                )
+            dim_head = min_dim // heads
+
             # Reshape for multi-head attention
             q = q.view(b * heads, seq_len_q, dim_head)
             k = k.view(b * heads, seq_len_k, dim_head)
@@ -181,7 +188,7 @@ class EfficientAttentionNode:
                 out = self.default_attention(q, k, v, mask)
 
             # Reshape output
-            out = out.view(b, seq_len_q, dim_q)
+            out = out.view(b, seq_len_q, min_dim)
 
             # Apply layer normalization if enabled
             if self.use_layer_norm:
