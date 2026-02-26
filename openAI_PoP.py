@@ -4,7 +4,6 @@ import time
 
 import requests
 import torchvision.transforms as transforms
-import numpy as np
 from PIL import Image
 from openai import OpenAI, AuthenticationError, RateLimitError, BadRequestError, APIConnectionError, APIError
 
@@ -42,7 +41,7 @@ class DallE3_PoP:
                 default_image = Image.open(default_image_path).convert('RGB')
             except FileNotFoundError:
                 logging.error(f"Default image not found: {default_image_path}")
-                return "Error: Default image not found."
+                raise RuntimeError(f"Default image not found: {default_image_path}")
             transform = transforms.Compose([transforms.ToTensor()])
             default_image_tensor = transform(default_image).unsqueeze(0)
             default_image_tensor = default_image_tensor.permute(0, 2, 3, 1)
@@ -64,27 +63,30 @@ class DallE3_PoP:
 
         except AuthenticationError:
             logging.error("Authentication failed: Invalid API key.")
-            return "Error: Authentication failed. Please check your API key."
+            raise RuntimeError("Authentication failed. Please check your API key.")
 
         except RateLimitError:
             logging.error("Rate limit exceeded.")
-            return "Error: Rate limit exceeded. Please try again later."
+            raise RuntimeError("Rate limit exceeded. Please try again later.")
 
         except BadRequestError as e:
             logging.error(f"Invalid request: {e}")
-            return f"Error: Invalid request. {e}"
+            raise RuntimeError(f"Invalid request: {e}")
 
         except APIConnectionError as e:
             logging.error(f"Network error: {e}")
-            return "Error: Network issue. Please check your internet connection."
+            raise RuntimeError(f"Network issue. Please check your internet connection. {e}")
 
         except APIError as e:
             logging.error(f"OpenAI API error: {e}")
-            return f"Error: An unexpected API error occurred. {e}"
+            raise RuntimeError(f"An unexpected API error occurred: {e}")
+
+        except RuntimeError:
+            raise
 
         except Exception as e:
             logging.error(f"Unexpected error: {e}")
-            return "Error: An unexpected error occurred. Please try again."
+            raise RuntimeError(f"An unexpected error occurred: {e}")
 
     def save_api_image_and_convert_to_tensor(self, image_url):
         try:
@@ -98,16 +100,18 @@ class DallE3_PoP:
                 image = Image.open(filepath).convert('RGB')
             else:
                 logging.error(f"Failed to download image, status: {image_response.status_code}")
-                return None
+                raise RuntimeError(f"Failed to download image, status: {image_response.status_code}")
 
             transform = transforms.Compose([transforms.ToTensor()])
             image_tensor = transform(image).unsqueeze(0)
             image_tensor = image_tensor.permute(0, 2, 3, 1)
             return (image_tensor,)
 
+        except RuntimeError:
+            raise
         except Exception as e:
             logging.error(f'Error saving image and converting to tensor: {e}')
-            return None
+            raise RuntimeError(f"Error saving image and converting to tensor: {e}")
 
 
 # Node registration

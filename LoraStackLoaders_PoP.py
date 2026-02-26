@@ -1,11 +1,7 @@
 import folder_paths
 import os
-import sys
 import comfy.utils
 import comfy.sd
-
-# Add the path to the comfy directory to sys.path
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "comfy"))
 
 
 class LoraStackLoader_PoP:
