@@ -7,13 +7,13 @@ Then run git clone https://github.com/picturesonpictures/comfy_PoP
 
 ################################################################################################
 
-The "Efficient Atttention Node" is experimental. I'll be honest, I haven't fully figured it out myself. But it does some very interesting things. No issues with 1.5 or XL, but doesn't cooperate with SD3.
+The "Efficient Attention Node" is experimental. I'll be honest, I haven't fully figured it out myself. But it does some very interesting things. No issues with 1.5 or XL, but doesn't cooperate with SD3.
 
 ![image](https://github.com/picturesonpictures/comfy_PoP/assets/118248359/463e5abd-859c-43bd-8f76-8456b183d0c4)
 
 ################################################################################################
 
-The openai node gives you access to the dalle3 api. Nothing special. It was more for my use a whlie back than for anything else. 
+The openai node gives you access to the dalle3 api. Nothing special. It was more for my use a while back than for anything else. 
 
 ################################################################################################
 
