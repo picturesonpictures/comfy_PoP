@@ -6,6 +6,8 @@ from .Conditioning_PoP import NODE_CLASS_MAPPINGS as Conditioning_PoP_MAPPINGS, 
 from .VAEEncodeDecodeLoader_PoP import NODE_CLASS_MAPPINGS as VAEEncodeDecodeLoader_PoP_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as VAEEncodeDecodeLoader_PoP_DISPLAY_NAME_MAPPINGS 
 from .EfficientAttentionNode_PoP import NODE_CLASS_MAPPINGS as EfficientAttention_PoP_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as EfficientAttention_PoP_DISPLAY_NAME_MAPPINGS
 from .openAI_PoP import NODE_CLASS_MAPPINGS as openAI_PoP_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as openAI_PoP_DISPLAY_NAME_MAPPINGS
+from .HiDiffusion_PoP import NODE_CLASS_MAPPINGS as HiDiffusion_PoP_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as HiDiffusion_PoP_DISPLAY_NAME_MAPPINGS
+from .StableFast_PoP import NODE_CLASS_MAPPINGS as StableFast_PoP_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS as StableFast_PoP_DISPLAY_NAME_MAPPINGS
 
 NODE_CLASS_MAPPINGS = {
     **AnyAspectRatio_MAPPINGS,
@@ -14,8 +16,10 @@ NODE_CLASS_MAPPINGS = {
     **LoadImageResizer_PoP_MAPPINGS,
     **Conditioning_PoP_MAPPINGS,
     **VAEEncodeDecodeLoader_PoP_MAPPINGS,
-    **EfficientAttention_PoP_MAPPINGS,  
-    **openAI_PoP_MAPPINGS
+    **EfficientAttention_PoP_MAPPINGS,
+    **openAI_PoP_MAPPINGS,
+    **HiDiffusion_PoP_MAPPINGS,
+    **StableFast_PoP_MAPPINGS,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -26,7 +30,9 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     **Conditioning_PoP_DISPLAY_NAME_MAPPINGS,
     **VAEEncodeDecodeLoader_PoP_DISPLAY_NAME_MAPPINGS,
     **EfficientAttention_PoP_DISPLAY_NAME_MAPPINGS,
-    **openAI_PoP_DISPLAY_NAME_MAPPINGS
+    **openAI_PoP_DISPLAY_NAME_MAPPINGS,
+    **HiDiffusion_PoP_DISPLAY_NAME_MAPPINGS,
+    **StableFast_PoP_DISPLAY_NAME_MAPPINGS,
 }
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS"]
